@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+<style>
+
+        body {
+  font-family: 'lato';
+}
+  
+.Rating-positive{
+  margin-left: 60px;
+  /* margin-bottom: 25px; */
+}
+
+.Rating-negative{
+  margin-right: 60px;
+  /* margin-bottom: 25px; */
+}
+
+#parent-one{
+  background-color: #d1c5c5;
+  outline-style: solid;
+  outline-color: black;
+}
+#parent-two{
+  background-color: #d1c5c5;
+  outline-style: solid;
+  outline-color: red;
+}
+#child-five{
+  background-color: #d1c5c5;
+  outline-style: solid;
+  outline-color: green;
+}
+.rot{
+    padding: 4px;
+}
+
+.button {
+  background-color: #d1c5c5;
+  border: none;
+  color: white;
+  padding: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 100%;
+}
+
+.button:hover {
+  background-color: lightgreen;
+  border: none;
+  color: black;
+  padding: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 100%;
+}
+
+center {
+  background: white;
+  margin: auto;
+  width: 78%;
+  border: 3px solid blue;
+  padding: 10px;
+}
+
+</style>
+</head>
+
+
+<script type="text/javascript">
+var obj = {};
+
+function ratingone() {
+//   let x = data;
+            console.log("viuo")
+            var a = 1;
+  obj["rating"] = a;
+  console.log(obj);
+//             window.parent.postMessage(
+//                 JSON.stringify({
+//                     event_code: "ym-client-event",
+//                     data: "ratingone"
+//                 }),
+//                 "*"
+//             ); /// this should be in the function for submit button
+
+        }
+function ratingtwo(){
+  var b=2;
+obj["rating"]=b;
+console.log(obj)
+}
+function ratingthree(){
+  var c=3;
+obj["rating"]=c;
+console.log(obj)
+}
+function ratingfour(){
+  var b=4;
+obj["rating"]=b;
+console.log(obj)
+}
+function ratingfive(){
+  var b=5;
+obj["rating"]=b;
+console.log(obj)
+}
+
+function ratingnps0(){
+  var b=0;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps1(){
+  var b=1;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps2(){
+  var b=2;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps3(){
+  var b=3;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps4(){
+  var b=4;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps5(){
+  var b=5;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps6(){
+  var b=6;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps7(){
+  var b=7;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps8(){
+  var b=8;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps9(){
+  var b=9;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function ratingnps10(){
+  var b=10;
+obj["middlerating"]=b;
+console.log(obj)
+}
+function finalsubmit() {
+
+  var g = document.getElementById("jack").value
+            console.log(g,"viuol")
+  obj["feedback"] = g;
+  console.log(obj);
+
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: obj
+                }),
+                "*"
+            ); 
+/// this should be in the function for submit button
+
+        }
+
+ </script>
+<body>
+  
+<center><form>
+  <div id = "parent-one">
+   <div id="child-one">
+    <p1>
+     <label>Rate your experience</label><br>
+      </p1>
+       <button class="button" type="button" value="1" onclick="ratingone()">😡</button>
+       <button class="button" type="button" value="2" onclick="ratingtwo()">🙁</button>
+       <button class="button" type="button" value="3" onclick="ratingthree()">😐</button>
+       <button class="button" type="button" value="4" onclick="ratingfour()">😌</button>
+       <button class="button" type="button" value="5" onclick="ratingfive()">😃</button>
+      </p1>
+    </div>
+  <div id="child-two">
+    <span class="Rating-negative">Strongly Disagree</span>
+    <span class="Rating-positive">Strongly Agree</span>
+  </div>
+ </div>
+  <br>
+  
+  <div id="parent-two">
+    <div id="child-three">
+     <p2>
+      <label>How likely are you to recommend Janio to your friends or family?</label><br>
+       <button class="button" type="button" value="0" onclick="ratingnps0()">0</button>
+       <button class="button" type="button" value="1" onclick="ratingnps1()">1</button>
+       <button class="button" type="button" value="2" onclick="ratingnps2()">2</button>
+       <button class="button" type="button" value="3" onclick="ratingnps3()">3</button>
+       <button class="button" type="button" value="4" onclick="ratingnps4()">4</button>
+       <button class="button" type="button" value="5" onclick="ratingnps5()">5</button>
+       <button class="button" type="button" value="6" onclick="ratingnps6()">6</button>
+       <button class="button" type="button" value="7" onclick="ratingnps7()">7</button>
+       <button class="button" type="button" value="8" onclick="ratingnps8()">8</button>
+       <button class="button" type="button" value="9" onclick="ratingnps9()">9</button>
+       <button class="button" type="button" value="10"onclick="ratingnps10()">10</button><br>
+     </p2>
+   </div>
+   <div id="child-four">
+    <span class="Rating-negative">Not at all Likely</span>
+    <span class="Rating-positive">Extremely Likely</span>
+   </div>
+  </div>
+  <br>
+  <div id = "parent-three">
+    <div id="child-five">
+     <label>How can we improve our services?</label><br>
+     <textarea rows= auto cols= auto id = "jack"></textarea><br>
+<!--      <input type="text" rows= auto cols= auto  id="num"> -->
+     <br>
+    </div>
+     <button type="button" value="10" onclick="finalsubmit(num.value)">submit</button>
+  </div>  
+</form></center>
+
+  </body>
+</html>
