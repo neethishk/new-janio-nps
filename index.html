@@ -168,21 +168,16 @@ console.log("jygdkgfkhgf")
   console.log(x)
   obj["feedback"] = x;
   console.log(obj);
+  let y = JSON.stringify({obj});
+  console.log(y);
+  console.log(typeof y);
   
-  fetch('https://cors-anywhere.herokuapp.com/https://cloud.yellow.ai/integrations/sendevent/nps-event/x1646712791469',
- {
-  method: 'POST',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Authorization': 'a9c98447db94beaeb4af968dd37e'
-  },
-  body: JSON.stringify({
-      "data": obj,
-  })
-}).then(response => response.json())
-.then(data => console.log(data)).catch(error=>console.log(error));
+  window.parent.postMessage(
+       JSON.stringify({
+                    data: y
+               }),
+                "*"
+           );
   
 }
 
