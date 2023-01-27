@@ -4,10 +4,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
 <style>
 
-        body {
+body {
   font-family: 'lato';
 }
   
@@ -23,18 +25,27 @@
 
 #parent-one{
   background-color: #d1c5c5;
+  border-radius: 4px;
+  height: 76px;
   outline-style: solid;
   outline-color: black;
+  outline-width: 1.3px;
 }
 #parent-two{
   background-color: #d1c5c5;
+  border-radius: 4px;
+  height: 94px;
   outline-style: solid;
-  outline-color: red;
+  outline-color: black;
+  outline-width: 1.3px;
 }
 #child-five{
   background-color: #d1c5c5;
+  border-radius: 4px;
+  height: 70px;
   outline-style: solid;
-  outline-color: green;
+  outline-color: black;
+  outline-width: 1.3px;
 }
 .rot{
     padding: 4px;
@@ -70,7 +81,7 @@
   border-radius: 100%;
 }
 
-.button2 {
+.npsbutton {
   background-color: #d1c5c5;
   border: none;
   color: white;
@@ -85,7 +96,7 @@
   border-radius: 100%;
 }
 
-.button2:hover {
+.npsbutton:hover {
   background-color: lightgreen;
   border: none;
   color: black;
@@ -102,127 +113,81 @@
 
 center {
   background: white;
+  border-radius: 4px;
   margin: 20px 0px 20px 0px;
   width: 78%;
-  border: 3px solid blue;
+  border: 1.8px solid black;
   padding: 10px;
 }
+  
 .button:active {
 background-color:green;
 }
+  
+.submit {
+        width: 30%;
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        padding: 5px;
+        margin: 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+  }
 </style>
 </head>
 
 <script type="text/javascript">
 let obj = {};
 
-function ratingone() {
-  console.log("viuo")
-  let a = 1;
-  obj["rating"] = a;
+function rating(x) {
+  console.log(x,"rating")
+  obj["rating"] = x;
   console.log(obj);
-  //const buttons = document.getElementsByClassName("button");
-  //console.log(buttons[0]);
-  let x = document.getElementById('kiki');
-  x.style.backgroundColor= '#911';
-}
-function ratingtwo(){
-  let b=2;
-obj["rating"]=b;
-console.log(obj)
-}
-function ratingthree(){
-  let c=3;
-obj["rating"]=c;
-console.log(obj)
-}
-function ratingfour(){
-  let b=4;
-obj["rating"]=b;
-console.log(obj)
-}
-function ratingfive(){
-  let b=5;
-obj["rating"]=b;
-console.log(obj)
+  disable("button");
 }
 
-function ratingnps0(){
-  let b=0;
-obj["middlerating"]=b;
-console.log(obj)
+function npsrating(x){
+console.log(x,"npsrating")
+obj["npsvalue"] = x;
+console.log(obj);
+disable("npsbutton");
 }
-function ratingnps1(){
-  let b=1;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps2(){
-  let b=2;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps3(){
-  let b=3;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps4(){
-  let b=4;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps5(){
-  let b=5;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps6(){
-  let b=6;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps7(){
-  let b=7;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps8(){
-  let b=8;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps9(){
-  let b=9;
-obj["middlerating"]=b;
-console.log(obj)
-}
-function ratingnps10(){
-  let b=10;
-obj["middlerating"]=b;
-console.log(obj)
+  
+function disable(value){
+  console.log(value)
+  const buttons = document.getElementsByClassName(value);
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled=true;
+  }
 }
 function finalsubmit() {
-
-  let g = document.getElementById("jack").value
-            console.log(g,"viuol")
-  obj["feedback"] = g;
+console.log("jygdkgfkhgf")
+  let x = document.getElementById("feedback").value
+  console.log(x)
+  obj["feedback"] = x;
   console.log(obj);
-
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: obj
-                }),
-                "*"
-            ); 
-/// this should be in the function for submit button
-
-        }
+  
+  fetch('https://cors-anywhere.herokuapp.com/https://cloud.yellow.ai/integrations/sendevent/nps-event/x1646712791469',
+ {
+  method: 'POST',
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'a9c98447db94beaeb4af968dd37e'
+  },
+  body: JSON.stringify({
+      "data": obj,
+  })
+}).then(response => response.json())
+.then(data => console.log(data)).catch(error=>console.log(error));
+  
+}
 
  </script>
 <body>
-<!--   <p id="GFG_DOWN" style="color:green></p> -->
   
 <center><form>
   <div id = "parent-one">
@@ -230,11 +195,11 @@ function finalsubmit() {
     <p1>
      <label>Rate your experience</label><br>
       </p1>
-       <button class="button" type="button" value="1" onclick="ratingone()" id="kiki">😡</button>
-       <button class="button" type="button" value="2" onclick="ratingtwo()">🙁</button>
-       <button class="button" type="button" value="3" onclick="ratingthree()">😐</button>
-       <button class="button" type="button" value="4" onclick="ratingfour()">😌</button>
-       <button class="button" type="button" value="5" onclick="ratingfive()">😃</button>
+       <button class="button" type="button" onclick="rating(`1`)">😡</button>
+       <button class="button" type="button" onclick="rating(`2`)">🙁</button>
+       <button class="button" type="button" onclick="rating(`3`)">😐</button>
+       <button class="button" type="button" onclick="rating(`4`)">😌</button>
+       <button class="button" type="button" onclick="rating(`5`)">😃</button>
       </p1>
     </div>
   <div id="child-two">
@@ -248,17 +213,17 @@ function finalsubmit() {
     <div id="child-three">
      <p2>
       <label>How likely are you to recommend Janio to your friends or family?</label><br>
-       <button class="button2" type="button" value="0" onclick="ratingnps0()">0</button>
-       <button class="button2" type="button" value="1" onclick="ratingnps1()">1</button>
-       <button class="button2" type="button" value="2" onclick="ratingnps2()">2</button>
-       <button class="button2" type="button" value="3" onclick="ratingnps3()">3</button>
-       <button class="button2" type="button" value="4" onclick="ratingnps4()">4</button>
-       <button class="button2" type="button" value="5" onclick="ratingnps5()">5</button>
-       <button class="button2" type="button" value="6" onclick="ratingnps6()">6</button>
-       <button class="button2" type="button" value="7" onclick="ratingnps7()">7</button>
-       <button class="button2" type="button" value="8" onclick="ratingnps8()">8</button>
-       <button class="button2" type="button" value="9" onclick="ratingnps9()">9</button>
-       <button class="button2" type="button" value="10"onclick="ratingnps10()">10</button><br>
+       <button class="npsbutton" type="button" onclick="npsrating(`0`)">0</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`1`)">1</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`2`)">2</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`3`)">3</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`4`)">4</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`5`)">5</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`6`)">6</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`7`)">7</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`8`)">8</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`9`)">9</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`10`)">10</button><br>
      </p2>
    </div>
    <div id="child-four">
@@ -270,11 +235,10 @@ function finalsubmit() {
   <div id = "parent-three">
     <div id="child-five">
      <label>How can we improve our services?</label><br>
-     <textarea rows= auto cols= auto id = "jack"placeholder="give your feedback..."></textarea><br>
-<!--      <input type="text" rows= auto cols= auto  id="num"> -->
+     <textarea rows= auto cols= auto id = "feedback"placeholder="share your feedback..."></textarea><br>
      <br>
     </div>
-     <button type="button" value="10" onclick="finalsubmit()">submit</button>
+     <button class="submit" type="button" onclick="finalsubmit()">submit</button>
   </div>  
 </form></center>
 
