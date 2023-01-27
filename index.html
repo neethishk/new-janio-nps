@@ -70,6 +70,36 @@
   border-radius: 100%;
 }
 
+.button2 {
+  background-color: #d1c5c5;
+  border: none;
+  color: white;
+  padding: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 100%;
+}
+
+.button2:hover {
+  background-color: lightgreen;
+  border: none;
+  color: black;
+  padding: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 100%;
+}
+
 center {
   background: white;
   margin: 20px 0px 20px 0px;
@@ -77,29 +107,25 @@ center {
   border: 3px solid blue;
   padding: 10px;
 }
-
+.button:active {
+background-color:green;
+}
 </style>
 </head>
-
 
 <script type="text/javascript">
 let obj = {};
 
 function ratingone() {
-//   let x = data;
-            console.log("viuo")
-            let a = 1;
+  console.log("viuo")
+  let a = 1;
   obj["rating"] = a;
   console.log(obj);
-//             window.parent.postMessage(
-//                 JSON.stringify({
-//                     event_code: "ym-client-event",
-//                     data: "ratingone"
-//                 }),
-//                 "*"
-//             ); /// this should be in the function for submit button
-
-        }
+  //const buttons = document.getElementsByClassName("button");
+  //console.log(buttons[0]);
+  let x = document.getElementById('kiki');
+  x.style.backgroundColor= '#911';
+}
 function ratingtwo(){
   let b=2;
 obj["rating"]=b;
@@ -196,6 +222,7 @@ function finalsubmit() {
 
  </script>
 <body>
+<!--   <p id="GFG_DOWN" style="color:green></p> -->
   
 <center><form>
   <div id = "parent-one">
@@ -203,7 +230,7 @@ function finalsubmit() {
     <p1>
      <label>Rate your experience</label><br>
       </p1>
-       <button class="button" type="button" value="1" onclick="ratingone()">😡</button>
+       <button class="button" type="button" value="1" onclick="ratingone()" id="kiki">😡</button>
        <button class="button" type="button" value="2" onclick="ratingtwo()">🙁</button>
        <button class="button" type="button" value="3" onclick="ratingthree()">😐</button>
        <button class="button" type="button" value="4" onclick="ratingfour()">😌</button>
@@ -221,17 +248,17 @@ function finalsubmit() {
     <div id="child-three">
      <p2>
       <label>How likely are you to recommend Janio to your friends or family?</label><br>
-       <button class="button" type="button" value="0" onclick="ratingnps0()">0</button>
-       <button class="button" type="button" value="1" onclick="ratingnps1()">1</button>
-       <button class="button" type="button" value="2" onclick="ratingnps2()">2</button>
-       <button class="button" type="button" value="3" onclick="ratingnps3()">3</button>
-       <button class="button" type="button" value="4" onclick="ratingnps4()">4</button>
-       <button class="button" type="button" value="5" onclick="ratingnps5()">5</button>
-       <button class="button" type="button" value="6" onclick="ratingnps6()">6</button>
-       <button class="button" type="button" value="7" onclick="ratingnps7()">7</button>
-       <button class="button" type="button" value="8" onclick="ratingnps8()">8</button>
-       <button class="button" type="button" value="9" onclick="ratingnps9()">9</button>
-       <button class="button" type="button" value="10"onclick="ratingnps10()">10</button><br>
+       <button class="button2" type="button" value="0" onclick="ratingnps0()">0</button>
+       <button class="button2" type="button" value="1" onclick="ratingnps1()">1</button>
+       <button class="button2" type="button" value="2" onclick="ratingnps2()">2</button>
+       <button class="button2" type="button" value="3" onclick="ratingnps3()">3</button>
+       <button class="button2" type="button" value="4" onclick="ratingnps4()">4</button>
+       <button class="button2" type="button" value="5" onclick="ratingnps5()">5</button>
+       <button class="button2" type="button" value="6" onclick="ratingnps6()">6</button>
+       <button class="button2" type="button" value="7" onclick="ratingnps7()">7</button>
+       <button class="button2" type="button" value="8" onclick="ratingnps8()">8</button>
+       <button class="button2" type="button" value="9" onclick="ratingnps9()">9</button>
+       <button class="button2" type="button" value="10"onclick="ratingnps10()">10</button><br>
      </p2>
    </div>
    <div id="child-four">
@@ -243,7 +270,7 @@ function finalsubmit() {
   <div id = "parent-three">
     <div id="child-five">
      <label>How can we improve our services?</label><br>
-     <textarea rows= auto cols= auto id = "jack"></textarea><br>
+     <textarea rows= auto cols= auto id = "jack"placeholder="give your feedback..."></textarea><br>
 <!--      <input type="text" rows= auto cols= auto  id="num"> -->
      <br>
     </div>
