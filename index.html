@@ -123,6 +123,18 @@ center {
 .button:active {
 background-color:green;
 }
+  
+.submit {
+        width: 30%;
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        padding: 5px;
+        margin: 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+  }
 </style>
 </head>
 
@@ -160,13 +172,20 @@ console.log("jygdkgfkhgf")
   console.log(y);
   console.log(typeof y);
   
-window.parent.postMessage(
-       JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: obj
-               }),
-                "*"
-           );
+  fetch('https://cors-anywhere.herokuapp.com/https://cloud.yellow.ai/integrations/sendevent/nps-event/x1646712791469',
+ {
+  method: 'POST',
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'a9c98447db94beaeb4af968dd37e'
+  },
+  body: y
+}).then(response => response.json())
+.then(data => console.log(data)).catch(error=>console.log(error));
+  
+}
 
  </script>
 <body>
