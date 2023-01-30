@@ -160,14 +160,13 @@ console.log("jygdkgfkhgf")
   console.log(y);
   console.log(typeof y);
   
-  window.parent.postMessage(
+window.parent.postMessage(
        JSON.stringify({
+                    event_code: "ym-client-event",
                     data: obj
                }),
                 "*"
            );
-  
-}
 
  </script>
 <body>
