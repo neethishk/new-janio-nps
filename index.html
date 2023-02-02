@@ -84,7 +84,7 @@ body {
 .npsbutton {
   background-color: #d1c5c5;
   border: none;
-  color: white;
+  color: #8B0000;
   padding: 3px;
   text-align: center;
   text-decoration: none;
@@ -124,6 +124,10 @@ center {
 background-color:green;
 }
   
+.npsbutton:active {
+background-color:green;
+}
+  
 .submit {
         width: 30%;
         text-align: center;
@@ -141,15 +145,20 @@ background-color:green;
 <script type="text/javascript">
 let obj = {};
 
-function rating(x) {
+function rating(x,y) {
   console.log(x,"rating")
+  console.log(y,"id")
+  document.getElementById(y).style.backgroundColor = "lightgreen";
   obj["rating"] = x;
-  console.log(obj);
+  console.log(obj,"rating output");
   disable("button");
 }
 
-function npsrating(x){
+function npsrating(x,y){
 console.log(x,"npsrating")
+console.log(y,"id")
+document.getElementById(y).style.backgroundColor = "lightgreen";
+document.getElementById(y).style.color = "black";
 obj["npsvalue"] = x;
 console.log(obj);
 disable("npsbutton");
@@ -168,9 +177,9 @@ console.log("jygdkgfkhgf")
   console.log(x)
   obj["feedback"] = x;
   console.log(obj);
-  let y = JSON.stringify({obj});
-  console.log(y);
-  console.log(typeof y);
+  let data = JSON.stringify({obj});
+  console.log(data);
+  console.log(typeof data);
   
   fetch('https://cors-anywhere.herokuapp.com/https://cloud.yellow.ai/integrations/sendevent/nps-event/x1646712791469',
  {
@@ -181,7 +190,7 @@ console.log("jygdkgfkhgf")
     'Content-Type': 'application/json',
     'Authorization': 'a9c98447db94beaeb4af968dd37e'
   },
-  body: y
+  body: data
 }).then(response => response.json())
 .then(data => console.log(data)).catch(error=>console.log(error));
   
@@ -196,11 +205,12 @@ console.log("jygdkgfkhgf")
     <p1>
      <label>Rate your experience</label><br>
       </p1>
-       <button class="button" type="button" onclick="rating(`1`)">😡</button>
-       <button class="button" type="button" onclick="rating(`2`)">🙁</button>
-       <button class="button" type="button" onclick="rating(`3`)">😐</button>
-       <button class="button" type="button" onclick="rating(`4`)">😌</button>
-       <button class="button" type="button" onclick="rating(`5`)">😃</button>
+       <button class="button" type="button" onclick="rating(`1`,`r1`)" id="r1">😡</button>
+<!--        <button class="button" type="button" onclick="test()" id="r1">😡</button> -->
+       <button class="button" type="button" onclick="rating(`2`,`r2`)" id="r2">🙁</button>
+       <button class="button" type="button" onclick="rating(`3`,`r3`)" id="r3">😐</button>
+       <button class="button" type="button" onclick="rating(`4`,`r4`)" id="r4">😌</button>
+       <button class="button" type="button" onclick="rating(`5`,`r5`)" id="r5">😃</button>
       </p1>
     </div>
   <div id="child-two">
@@ -214,17 +224,17 @@ console.log("jygdkgfkhgf")
     <div id="child-three">
      <p2>
       <label>How likely are you to recommend Janio to your friends or family?</label><br>
-       <button class="npsbutton" type="button" onclick="npsrating(`0`)">0</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`1`)">1</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`2`)">2</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`3`)">3</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`4`)">4</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`5`)">5</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`6`)">6</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`7`)">7</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`8`)">8</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`9`)">9</button>
-       <button class="npsbutton" type="button" onclick="npsrating(`10`)">10</button><br>
+       <button class="npsbutton" type="button" onclick="npsrating(`0`,`n0`)" id="n0">0</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`1`,`n1`)" id="n1">1</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`2`,`n2`)" id="n2">2</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`3`,`n3`)" id="n3">3</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`4`,`n4`)" id="n4">4</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`5`,`n5`)" id="n5">5</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`6`,`n6`)" id="n6">6</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`7`,`n7`)" id="n7">7</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`8`,`n8`)" id="n8">8</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`9`,`n9`)" id="n9">9</button>
+       <button class="npsbutton" type="button" onclick="npsrating(`10`,`n10`)" id="n10">10</button><br>
      </p2>
    </div>
    <div id="child-four">
