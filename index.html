@@ -177,9 +177,9 @@ console.log("jygdkgfkhgf")
   console.log(x)
   obj["feedback"] = x;
   console.log(obj);
-  let data = JSON.stringify({obj});
-  console.log(data);
-  console.log(typeof data);
+  let dataone = JSON.stringify({obj});
+  console.log(dataone);
+  console.log(typeof dataone);
   
 //   fetch('https://cloud.yellow.ai/integrations/sendevent/nps-event/x1646712791469',
 //  {
@@ -197,7 +197,7 @@ console.log("jygdkgfkhgf")
    window.parent.postMessage(
        JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "success"
+                    data: dataone
                }),
                 "*"
            );
