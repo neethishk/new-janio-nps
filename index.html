@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1.2">
     <meta charset="UTF-8">
 <!--     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
@@ -14,7 +14,7 @@ body {
 }
   
 .Rating-positive{
-  margin-left: 60px;
+  margin-left: 0px;
   /* margin-bottom: 25px; */
 }
 
@@ -87,13 +87,12 @@ body {
   color: #8B0000;
   padding: 3px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  height: 25px;
-  width: 25px;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 100%;
+  height: 18px;
+  width: 18px;
+  font-size: 14px;
+  margin: auto ;
+
 }
 
 .npsbutton:hover {
@@ -102,25 +101,37 @@ body {
   color: black;
   padding: 3px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  height: 25px;
-  width: 25px;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 100%;
+  height: 18px;
+  width: 18px;
+  font-size: 14px;
+  margin: auto ;
+  border-radius: 200%;
 }
 
+
+/*center {*/
+/*  background: white;*/
+/*  border-radius: 4px;*/
+/*  margin: 20px 0px 20px 0px;*/
+/*  width: 78%;*/
+/*  border: 1.8px solid black;*/
+/*  padding: 10px;*/
+/*  vertical-align: middle;*/
+/*}*/
 
 center {
-  background: white;
-  border-radius: 4px;
-  margin: 20px 0px 20px 0px;
-  width: 78%;
-  border: 1.8px solid black;
-  padding: 10px;
-  vertical-align: middle;
+    width: 300px;
+    height: 320px;
+    padding: 10px;
+    border: 1.8px solid black;
+	background-color: white;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
 }
+
   
 .button:active {
 background-color:green;
@@ -238,7 +249,7 @@ console.log("jygdkgfkhgf")
   <div id="parent-two">
     <div id="child-three">
      <p2>
-      <label>How likely are you to recommend Janio to your friends or family?</label><br>
+      <label>How likely are you to recommend Janio to your friends or colleagues?</label><br>
        <button class="npsbutton" type="button" onclick="npsrating(`0`,`n0`)" id="n0">0</button>
        <button class="npsbutton" type="button" onclick="npsrating(`1`,`n1`)" id="n1">1</button>
        <button class="npsbutton" type="button" onclick="npsrating(`2`,`n2`)" id="n2">2</button>
@@ -252,6 +263,7 @@ console.log("jygdkgfkhgf")
        <button class="npsbutton" type="button" onclick="npsrating(`10`,`n10`)" id="n10">10</button><br>
      </p2>
    </div>
+   <br>
    <div id="child-four">
     <span class="Rating-negative">Not at all Likely</span>
     <span class="Rating-positive">Extremely Likely</span>
