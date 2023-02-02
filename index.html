@@ -179,33 +179,33 @@ console.log("jygdkgfkhgf")
   console.log(obj);
     
   let a = obj.rating;
-  let b = obj.npsrating;
+  let b = obj.npsvalue;
   let c = obj.feedback;
     
   let dataone = JSON.stringify({obj});
   console.log(dataone);
   console.log(typeof dataone);
   
-  fetch('https://cloud.yellow.ai/integrations/sendevent/nps-event/x1646712791469',
- {
-  method: 'POST',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Authorization': 'a9c98447db94beaeb4af968dd37e',
-    'x-api-key': 'nly1FP7ROog92HO4eSAw6FuzBJtVv-QU2UbG7Rom'
-  },
-  body: dataone
-}).then(response => response.json())
-.then(data => console.log(data)).catch(error=>console.log(error));
-//    window.parent.postMessage(
-//        JSON.stringify({
-//                     event_code: "ym-client-event",
-//                     data: `Rating: ${a} NPS: ${b} Feedback: ${c}`
-//                }),
-//                 "*"
-//            );
+//   fetch('https://cloud.yellow.ai/integrations/sendevent/nps-event/x1646712791469',
+//  {
+//   method: 'POST',
+//   headers: {
+//     'Access-Control-Allow-Origin': '*',
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json',
+//     'Authorization': 'a9c98447db94beaeb4af968dd37e',
+//     'x-api-key': 'nly1FP7ROog92HO4eSAw6FuzBJtVv-QU2UbG7Rom'
+//   },
+//   body: dataone
+// }).then(response => response.json())
+// .then(data => console.log(data)).catch(error=>console.log(error));
+   window.parent.postMessage(
+       JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: `Rating: ${a} NPS: ${b} Feedback: ${c}`
+               }),
+                "*"
+           );
   
 }
 
